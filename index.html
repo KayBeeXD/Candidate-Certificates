@@ -1,30 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Candidate Details</title>
-
-<style>
-body{
-    font-family: Arial;
-    padding:20px;
-    background:#f4f6f8;
-}
-
-.container{
-    max-width:400px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-}
-
-.row{
-    margin-bottom:10px;
-}
-</style>
-
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -40,35 +19,7 @@ body{
 
 </div>
 
-<script>
-
-const candidates = {
-
-"12345": {
-name:"Rahul Das",
-trade:"Electrician",
-sector:"Power"
-},
-
-"67890": {
-name:"Amit Roy",
-trade:"Fitter",
-sector:"Manufacturing"
-}
-
-};
-
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-if(candidates[id]){
-document.getElementById("name").textContent = candidates[id].name;
-document.getElementById("id").textContent = id;
-document.getElementById("trade").textContent = candidates[id].trade;
-document.getElementById("sector").textContent = candidates[id].sector;
-}
-
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
