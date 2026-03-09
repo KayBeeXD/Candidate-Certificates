@@ -1,25 +1,26 @@
-const candidates = {
+const sheetURL = "https://opensheet.elk.sh/1x46SMUmfsAb4tm_VaPaFlcEPR8KH1q4jjmiviiLWS5A/Sheet1";
 
-"12345": {
-name:"Rahul Das",
-trade:"Electrician",
-sector:"Power"
-},
+async function loadCandidates(){
 
-"67890": {
-name:"Amit Roy",
-trade:"Fitter",
-sector:"Manufacturing"
-}
-
-};
+const response = await fetch(sheetURL);
+const data = await response.json();
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-if(candidates[id]){
-document.getElementById("name").textContent = candidates[id].name;
-document.getElementById("id").textContent = id;
-document.getElementById("trade").textContent = candidates[id].trade;
-document.getElementById("sector").textContent = candidates[id].sector;
+data.forEach(candidate => {
+
+if(candidate["Candidate ID"] === id){
+
+document.getElementById("id").textContent = candidate["Candidate ID"];
+document.getElementById("name").textContent = candidate["Candidate Name"];
+document.getElementById("trade").textContent = candidate["Trade Name"];
+document.getElementById("sector").textContent = candidate["Sector"];
+
 }
+
+});
+
+}
+
+loadCandidates();
