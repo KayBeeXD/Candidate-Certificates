@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Details</title>
+
+<style>
+body{
+    font-family: Arial;
+    padding:20px;
+    background:#f4f6f8;
+}
+
+.container{
+    max-width:400px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.row{
+    margin-bottom:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h3>Candidate Details</h3>
+
+<div class="row"><b>Candidate Name:</b> <span id="name"></span></div>
+<div class="row"><b>Candidate ID:</b> <span id="id"></span></div>
+<div class="row"><b>Trade Name:</b> <span id="trade"></span></div>
+<div class="row"><b>Sector:</b> <span id="sector"></span></div>
+
+</div>
+
+<script>
+
+const candidates = {
+
+"12345": {
+name:"Rahul Das",
+trade:"Electrician",
+sector:"Power"
+},
+
+"67890": {
+name:"Amit Roy",
+trade:"Fitter",
+sector:"Manufacturing"
+}
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if(candidates[id]){
+document.getElementById("name").textContent = candidates[id].name;
+document.getElementById("id").textContent = id;
+document.getElementById("trade").textContent = candidates[id].trade;
+document.getElementById("sector").textContent = candidates[id].sector;
+}
+
+</script>
+
+</body>
+</html>
